@@ -6,11 +6,15 @@ import androidx.room.*
 @Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addUsr(data: UserDataModel)
+    suspend fun addUsr(data: Data)
 
     @Query("SELECT * FROM user ORDER BY id ASC")
-    fun readAllData(): LiveData<List<UserDataModel>>
+    fun readAllData(): LiveData<List<Data>>
 
     @Update
-    suspend fun updateUser(user: UserDataModel)
+    suspend fun updateUser(user: Data)
+
+    @Delete
+    suspend fun deleteUser(user: Data)
+
 }

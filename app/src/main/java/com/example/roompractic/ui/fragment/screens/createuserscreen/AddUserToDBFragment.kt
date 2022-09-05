@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roompractic.R
 import com.example.roompractic.databinding.FragmentCreateBinding
-import com.example.roompractic.room.UserDataModel
+import com.example.roompractic.room.Data
 import com.example.roompractic.ui.fragment.BaseFragment
 
 class AddUserToDBFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding::inflate) {
@@ -30,13 +30,12 @@ class AddUserToDBFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBi
         val age = binding.ageCreate.text
         try {
             if (inputCheck(firstName, secondName, age)) {
-                val user = UserDataModel(0, firstName, secondName, Integer.parseInt(age.toString()))
+                val user = Data(0, firstName, secondName, Integer.parseInt(age.toString()))
                 userViewModel.addUser(user)
                 Toast.makeText(requireContext(), "Good ", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_createFragment_to_showFragment)
             } else {
                 Toast.makeText(requireContext(), "Oooops... ", Toast.LENGTH_SHORT).show()
-
             }
         } catch (e: Exception) {
 

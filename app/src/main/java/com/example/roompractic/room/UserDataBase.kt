@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.roompractic.Constant.TABLE_NAME
 
-@Database(entities = [UserDataModel::class], version = 1, exportSchema = false)
+@Database(entities = [Data::class], version = 1, exportSchema = false)
 abstract class UserDataBase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

@@ -6,14 +6,15 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roompractic.databinding.ItemRvBinding
-import com.example.roompractic.room.UserDataModel
+import com.example.roompractic.room.Data
 
 class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserListHolder>() {
 
-    private var userList = mutableListOf<UserDataModel>()
+    private var userList = mutableListOf<Data>()
+
     class UserListHolder(val binding: ItemRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: UserDataModel) {
+        fun bind(data: Data) {
             binding.userIdTv.text = data.id.toString()
             binding.nameTv.text = data.name
             binding.secondNameTv.text = data.secondName
@@ -33,17 +34,16 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserListHolder>() {
 
     override fun onBindViewHolder(holder: UserListHolder, position: Int) {
         val user = userList[position]
-        Log.d("Adapter", "${userList.size}")
         with(holder) {
-           bind(user)
+            bind(user)
         }
     }
 
     override fun getItemCount() = userList.size
 
-    fun setData(list: List<UserDataModel>) {
+    fun setData(list: List<Data>) {
         userList.addAll(list)
-        notifyItemInserted(userList.lastIndex)
+        notifyDataSetChanged()
     }
 }
 

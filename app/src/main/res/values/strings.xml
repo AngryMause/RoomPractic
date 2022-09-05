@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Room practic</string>
+    <string name="hint_name">name</string>
+    <string name="hint_second_name">Seond name</string>
+    <string name="age">Age</string>
+    <string name="update">Update</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>

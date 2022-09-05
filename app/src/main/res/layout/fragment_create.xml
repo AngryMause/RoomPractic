@@ -9,14 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:hint="name" />
+        android:hint="@string/hint_name" />
 
     <EditText
         android:id="@+id/second_name_create"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:hint="Seond name" />
+        android:hint="@string/hint_second_name" />
 
     <EditText
         android:id="@+id/age_create"
@@ -24,12 +24,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:inputType="number"
-        android:hint="Age" />
+        android:hint="@string/age" />
 
     <Button
         android:id="@+id/save_data_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Save" />
+        android:text="@string/save" />
 </LinearLayout>

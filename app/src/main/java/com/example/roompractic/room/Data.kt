@@ -9,7 +9,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity(tableName = TABLE_NAME)
-data class UserDataModel(
+data class Data(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     @ColumnInfo(name = "name")
