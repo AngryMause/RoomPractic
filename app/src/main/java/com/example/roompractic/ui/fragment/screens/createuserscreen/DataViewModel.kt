@@ -1,27 +1,20 @@
-package com.example.roompractic.room
+package com.example.roompractic.ui.fragment.screens.createuserscreen
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.roompractic.room.UserDataModel
+import com.example.roompractic.ui.viewmodel.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DataViewModel(application: Application) : AndroidViewModel(application) {
+class DataViewModel(application: Application) :BaseViewModel(application) {
 
-    val readAllData: LiveData<List<Data>>
-    private val repository: UserRepository
-
-    init {
-        val userDao = UserDataBase.getDataBase(application).userDao()
-        repository = UserRepository(userDao)
-        readAllData = repository.readAllDate
-    }
-
-
-    fun addUser(data: Data) {
+    fun addUser(data: UserDataModel) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addUse(data)
         }
     }
+
+
+
 }

@@ -6,18 +6,34 @@
 
     <fragment
         android:id="@+id/showFragment"
-        android:name="com.example.roompractic.ShowFragment"
+        android:name="com.example.roompractic.ui.fragment.screens.userlistscreens.UsersListFragment"
         android:label="List Users">
         <action
-            android:id="@+id/action_showFragment_to_editFragment"
-            app:destination="@id/editFragment" />
+            android:id="@+id/action_showFragment_to_createFragment"
+            app:destination="@id/createFragment" />
+        <action
+            android:id="@+id/action_showFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+
     </fragment>
+
     <fragment
-        android:id="@+id/editFragment"
-        android:name="com.example.roompractic.EditFragment"
+        android:id="@+id/createFragment"
+        android:name="com.example.roompractic.ui.fragment.screens.createuserscreen.AddUserToDBFragment"
         android:label="Add User">
         <action
-            android:id="@+id/action_editFragment_to_showFragment"
+            android:id="@+id/action_createFragment_to_showFragment"
             app:destination="@id/showFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.roompractic.ui.fragment.screens.updateuserscreen.UpdateFragment"
+        android:label="Update">
+        <action
+            android:id="@+id/action_updateFragment_to_showFragment"
+            app:destination="@id/showFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.roompractic.room.Data" />
     </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.roompractic.activity
+package com.example.roompractic.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

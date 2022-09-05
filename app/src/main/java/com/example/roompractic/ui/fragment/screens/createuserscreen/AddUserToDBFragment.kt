@@ -1,4 +1,4 @@
-package com.example.roompractic.createuserscreen
+package com.example.roompractic.ui.fragment.screens.createuserscreen
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,19 +8,17 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.roompractic.R
-import com.example.roompractic.databinding.FragmentEditBinding
-import com.example.roompractic.fragment.BaseFragment
-import com.example.roompractic.room.Data
-import com.example.roompractic.room.DataViewModel
+import com.example.roompractic.databinding.FragmentCreateBinding
+import com.example.roompractic.room.UserDataModel
+import com.example.roompractic.ui.fragment.BaseFragment
 
-class AddUserToDBFragment : BaseFragment<FragmentEditBinding>(FragmentEditBinding::inflate) {
+class AddUserToDBFragment : BaseFragment<FragmentCreateBinding>(FragmentCreateBinding::inflate) {
 
     private lateinit var userViewModel: DataViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userViewModel = ViewModelProvider(this).get(DataViewModel::class.java)
-
         binding.saveDataCreate.setOnClickListener {
             insertDataToDataBase()
         }
@@ -32,10 +30,10 @@ class AddUserToDBFragment : BaseFragment<FragmentEditBinding>(FragmentEditBindin
         val age = binding.ageCreate.text
         try {
             if (inputCheck(firstName, secondName, age)) {
-                val user = Data(0, firstName, secondName, Integer.parseInt(age.toString()))
+                val user = UserDataModel(0, firstName, secondName, Integer.parseInt(age.toString()))
                 userViewModel.addUser(user)
                 Toast.makeText(requireContext(), "Good ", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_editFragment_to_showFragment)
+                findNavController().navigate(R.id.action_createFragment_to_showFragment)
             } else {
                 Toast.makeText(requireContext(), "Oooops... ", Toast.LENGTH_SHORT).show()
 

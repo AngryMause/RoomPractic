@@ -1,4 +1,4 @@
-package com.example.roompractic.fragment
+package com.example.roompractic.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,3 +31,7 @@ open class BaseFragment<VB : ViewBinding>(private val innflat: Inflate<VB>) : Fr
 
 
 }
+
+
+
+
